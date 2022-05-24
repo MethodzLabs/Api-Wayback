@@ -1,0 +1,28 @@
+{
+  "name": "methodz/api_wayback",
+  "description": "Methodz API Wayback",
+  "authors": [
+    {
+      "name": "Thomas FONTAINE--TUFFERY",
+      "email": "thomas-fontaine@zaacom.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Methodz\\Api\\Wayback\\": "src/Methodz/Api/Wayback",
+      "Methodz\\Helpers\\": "vendor/methodz/helpers/src"
+    }
+  },
+  "require": {
+    "methodz/helpers": "dev-master"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/MethodzLabs/Helpers"
+    }
+  ],
+  "require-dev": {
+    "phpunit/phpunit": "9.5.20"
+  }
+}
