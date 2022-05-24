@@ -12,7 +12,7 @@ abstract class Wayback
 {
 
 	/**
-	 *
+	 * This function returns the date when the first snapshot was recorded for a given url.
 	 *
 	 * @param string $url - the url of the site you want to get the timestamp (example.fr)
 	 *
@@ -30,7 +30,7 @@ abstract class Wayback
 	}
 
 	/**
-	 *
+	 * This function returns the data in array format from the Wayback response for a given url.
 	 *
 	 * @param string   $url      - the url of the site you want to get the timestamp (example.fr)
 	 * @param DateTime $datetime - the date on which we want to retrieve the timestamp
