@@ -8,7 +8,7 @@ use Methodz\Helpers\Curl\Curl;
 use Methodz\Helpers\Curl\Exception\CurlResultCodeException;
 use Methodz\Helpers\Date\DateTime;
 
-class Wayback
+abstract class Wayback
 {
 
 	/**
