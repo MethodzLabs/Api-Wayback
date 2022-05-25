@@ -43,13 +43,13 @@ abstract class Wayback
 	 */
 	public static function getWaybackCaptureData(string $url, DateTime $datetime): array
 	{
-		Curl::init("http://archive.org/wayback/available");
-		Curl::addGETParameters('url', urlencode($url));
-		Curl::addGETParameters('timestamp', $datetime->getTimestamp());
-		Curl::exec();
-		$response = Curl::getResult();
-		$curl_infos = Curl::getInfos();
-		Curl::close();
+		$curl = Curl::init("http://archive.org/wayback/available")
+			->addGETParameters('url', urlencode($url))
+			->addGETParameters('timestamp', $datetime->getTimestamp())
+			->exec();
+		$response = $curl->getResult();
+		$curl_infos = $curl->getInfos();
+		$curl->close();
 		if ($curl_infos['http_code'] !== 200) {
 			throw new CurlResultCodeException($curl_infos['http_code']);
 		}

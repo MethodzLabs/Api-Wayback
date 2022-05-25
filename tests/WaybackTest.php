@@ -10,7 +10,7 @@ class WaybackTest extends TestCase
 	public function testGetFirstDateTimeWaybackCapture()
 	{
 		$response = Wayback::getFirstDateTimeWaybackCapture('zaacom.fr');
-		self::assertEquals(1381126434,$response->getTimestamp());
+		self::assertEquals(1381126434, $response->getTimestamp());
 	}
 
 	public function testGetWaybackCaptureData()
