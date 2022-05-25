@@ -5,6 +5,7 @@ namespace Methodz\Api\Wayback;
 use Methodz\Api\Wayback\Exception\WaybackNotDataAvailableException;
 use Methodz\Api\Wayback\Exception\WaybackStatusResponsesCodeException;
 use Methodz\Helpers\Curl\Curl;
+use Methodz\Helpers\Curl\Exception\CurlExecuteException;
 use Methodz\Helpers\Curl\Exception\CurlResultCodeException;
 use Methodz\Helpers\Date\DateTime;
 
@@ -20,7 +21,7 @@ abstract class Wayback
 	 *
 	 * @throws CurlResultCodeException
 	 * @throws WaybackNotDataAvailableException
-	 * @throws WaybackStatusResponsesCodeException
+	 * @throws WaybackStatusResponsesCodeException|CurlExecuteException
 	 */
 	public static function getFirstDateTimeWaybackCapture(string $url): DateTime
 	{
@@ -39,17 +40,17 @@ abstract class Wayback
 	 *
 	 * @throws CurlResultCodeException
 	 * @throws WaybackStatusResponsesCodeException
-	 * @throws WaybackNotDataAvailableException
+	 * @throws WaybackNotDataAvailableException|CurlExecuteException
 	 */
 	public static function getWaybackCaptureData(string $url, DateTime $datetime): array
 	{
 		$curl = Curl::init("http://archive.org/wayback/available")
 			->addGETParameters('url', urlencode($url))
 			->addGETParameters('timestamp', $datetime->getTimestamp())
-			->exec();
+			->exec()
+			->close();
 		$response = $curl->getResult();
 		$curl_infos = $curl->getInfos();
-		$curl->close();
 		if ($curl_infos['http_code'] !== 200) {
 			throw new CurlResultCodeException($curl_infos['http_code']);
 		}
