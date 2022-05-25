@@ -47,8 +47,7 @@ abstract class Wayback
 		$curl = Curl::init("http://archive.org/wayback/available")
 			->addGETParameters('url', urlencode($url))
 			->addGETParameters('timestamp', $datetime->getTimestamp())
-			->exec()
-			->close();
+			->exec();
 		$response = $curl->getResult();
 		$curl_infos = $curl->getInfos();
 		if ($curl_infos['http_code'] !== 200) {
