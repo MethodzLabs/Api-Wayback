@@ -9,7 +9,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Methodz\\Api\\Wayback\\": "src/Methodz/Api/Wayback",
+      "Methodz\\": "src/Methodz/",
       "Methodz\\Helpers\\": "vendor/methodz/helpers/src"
     }
   },
