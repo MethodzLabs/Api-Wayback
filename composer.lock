@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/MethodzLabs/Helpers.git",
-                "reference": "3a5c1d27d8f39b6abfbabead4f5099ae760b9681"
+                "reference": "2af56c3e1c790597ec7e54dad849a0ff69ea5875"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MethodzLabs/Helpers/zipball/3a5c1d27d8f39b6abfbabead4f5099ae760b9681",
-                "reference": "3a5c1d27d8f39b6abfbabead4f5099ae760b9681",
+                "url": "https://api.github.com/repos/MethodzLabs/Helpers/zipball/2af56c3e1c790597ec7e54dad849a0ff69ea5875",
+                "reference": "2af56c3e1c790597ec7e54dad849a0ff69ea5875",
                 "shasum": ""
             },
             "require": {
@@ -45,7 +45,7 @@
                 "source": "https://github.com/MethodzLabs/Helpers/tree/master",
                 "issues": "https://github.com/MethodzLabs/Helpers/issues"
             },
-            "time": "2022-06-04T15:16:15+00:00"
+            "time": "2022-06-06T09:51:49+00:00"
         }
     ],
     "packages-dev": [

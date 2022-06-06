@@ -50,7 +50,7 @@ abstract class Wayback
 			->addGETParameters('timestamp', $datetime->getTimestamp())
 			->exec();
 		$response = $curl->getResult();
-		$http_code = intval($curl->getInfo(CurlInfoKeyEnum::HTTP_CODE));
+		$http_code = $curl->getInfo(CurlInfoKeyEnum::HTTP_CODE);
 		if ($http_code !== 200) {
 			throw new CurlResultCodeException($http_code);
 		}
