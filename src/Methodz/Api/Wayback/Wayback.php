@@ -5,6 +5,7 @@ namespace Methodz\Api\Wayback;
 use Methodz\Api\Wayback\Exception\WaybackNotDataAvailableException;
 use Methodz\Api\Wayback\Exception\WaybackStatusResponsesCodeException;
 use Methodz\Helpers\Curl\Curl;
+use Methodz\Helpers\Curl\CurlInfoKeyEnum;
 use Methodz\Helpers\Curl\Exception\CurlExecuteException;
 use Methodz\Helpers\Curl\Exception\CurlResultCodeException;
 use Methodz\Helpers\Date\DateTime;
@@ -49,9 +50,9 @@ abstract class Wayback
 			->addGETParameters('timestamp', $datetime->getTimestamp())
 			->exec();
 		$response = $curl->getResult();
-		$curl_infos = $curl->getInfos();
-		if ($curl_infos['http_code'] !== 200) {
-			throw new CurlResultCodeException($curl_infos['http_code']);
+		$http_code = intval($curl->getInfo(CurlInfoKeyEnum::HTTP_CODE));
+		if ($http_code !== 200) {
+			throw new CurlResultCodeException($http_code);
 		}
 
 		$response = json_decode($response, true);
